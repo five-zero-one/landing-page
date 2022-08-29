@@ -7,7 +7,8 @@
 * {
     --color-bloo: rgba(109, 4, 48, 1);
     --color-pink: rgba(235, 82, 150, 1);
-    --color-bloo-opactity5: rgba(109, 4, 48, .05);
+    --color-pink-opacity10: rgba(235, 82, 150, .1);
+    --color-bloo-opacity5: rgba(109, 4, 48, .05);
     --color-white: rgba(255, 255, 255, 1);
     --color-white-opacity80: rgba(255, 255, 255, 0.8);
     --color-darkblue: rgba(16, 42, 66, 1);
@@ -16,7 +17,8 @@
     --serif: "Noticia Text", serif;
     --sans-serif: "Source Sans Pro", sans-serif;
 
-    --max-w: 304px;
+    --max-w-m: 304px;
+    --max-w-d: 369px;
 
     outline: 1px dashed rgba(28, 63, 12, .05);
     background: rgba(28, 63, 12, .05);
@@ -25,4 +27,46 @@
 html {
     font-family: var(--sans-serif);
     line-height: 24px;
+}
+
+/* css:feature */
+
+
+.feature {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    margin: auto;
+    max-width: var(--max-w-m);
+}
+
+.feature__icon {
+    background: var(--color-pink-opacity10);
+    stroke: var(--color-bloo);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    padding: 25px;
+    display: grid;
+    place-items: center;
+}
+
+@media screen and (min-width:1366px) {
+    .feature__group {
+        display: flex;
+    }
+
+    .feature {
+        grid-template-rows: 1fr 1fr;
+        grid-auto-flow: column;
+        justify-items: start;
+
+        max-width: var(--max-w-d);
+
+        text-align: inherit;
+    }
+
+    .feature__icon {
+        grid-row: 1/-1;
+    }
 }

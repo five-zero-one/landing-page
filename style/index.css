@@ -2,9 +2,17 @@
 @import url("https://unpkg.com/tailwindcss@3.1.8/src/css/preflight.css");
 
 /*font family*/
-@import url('https://fonts.googleapis.com/css2?family=Noticia+Text:wght@400;700&family=Source+Sans+Pro&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Noticia+Text:wght@400;700&family=Source+Sans+Pro&display=swap'); */
 
 * {
+    --color-bloo: rgba(109, 4, 48, 1);
+    --color-pink: rgba(235, 82, 150, 1);
+    --color-bloo-opactity5: rgba(109, 4, 48, .05);
+    --color-white: rgba(255, 255, 255, 1);
+    --color-white-opacity80: rgba(255, 255, 255, 0.8);
+    --color-darkblue: rgba(16, 42, 66, 1);
+    --color-black: rgba(0, 0, 0, 1);
+
     --serif: "Noticia Text", serif;
     --sans-serif: "Source Sans Pro", sans-serif;
 

@@ -2,7 +2,7 @@
 @import url("https://unpkg.com/tailwindcss@3.1.8/src/css/preflight.css");
 
 /*font family*/
-/* @import url('https://fonts.googleapis.com/css2?family=Noticia+Text:wght@400;700&family=Source+Sans+Pro&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
 
 * {
     --color-bloo: rgba(109, 4, 48, 1);
@@ -14,11 +14,11 @@
     --color-darkblue: rgba(16, 42, 66, 1);
     --color-black: rgba(0, 0, 0, 1);
 
-    --serif: "Noticia Text", serif;
     --sans-serif: "Source Sans Pro", sans-serif;
 
-    --max-w-m: 304px;
-    --max-w-d: 369px;
+    --min-w-m: 304px;
+    --max-w-m: 320px;
+    --max-w-d: 420px;
 
     outline: 1px dashed rgba(28, 63, 12, .05);
     background: rgba(28, 63, 12, .05);
@@ -29,15 +29,82 @@ html {
     line-height: 24px;
 }
 
-/* css:feature */
+/* css:hero */
 
+.hero {
+    background: var(--color-bloo-opacity5);
+    margin: auto;
+    max-width: var(--max-w-m);
+    border-radius: 20px;
+    overflow: hidden;
+    height: fit-content;
+    padding-bottom: 55px;
+}
+
+.hero :is(.hero__title, blockquote, a) {
+    --margin-x: 20px;
+    margin-left: var(--margin-x);
+    margin-right: var(--margin-x);
+}
+
+.hero small {
+    text-transform: uppercase;
+    color: var(--color-darkblue);
+    margin-bottom: 55px;
+}
+
+.hero__title {
+    color: var(--color-pink);
+    text-transform: uppercase;
+    margin-top: 55px;
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.hero__title~blockquote {
+    color: var(--color-darkblue);
+    margin-top: 30px;
+    margin-bottom: 42px;
+    /* background: magenta; */
+}
+
+.hero__title~blockquote p:first-child {
+    text-transform: lowercase;
+    font-size: 30px;
+    line-height: 37px;
+    text-transform: 600;
+    /* font-size: 55px; */
+    /* line-height: 66px; */
+    margin-bottom: 10px;
+}
+
+/* css:feature */
 
 .feature {
     display: grid;
     place-items: center;
     text-align: center;
+
     margin: auto;
     max-width: var(--max-w-m);
+}
+
+.feature__title,
+.feature p {
+    padding: 5px;
+}
+
+.feature__title {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+}
+
+.feature p {
+    font-size: 15px;
+    line-height: 28px;
 }
 
 .feature__icon {
@@ -49,6 +116,7 @@ html {
     padding: 25px;
     display: grid;
     place-items: center;
+    margin: 13px;
 }
 
 @media screen and (min-width:1366px) {
@@ -60,6 +128,7 @@ html {
         grid-template-rows: 1fr 1fr;
         grid-auto-flow: column;
         justify-items: start;
+        gap: 0 15px;
 
         max-width: var(--max-w-d);
 
@@ -69,4 +138,89 @@ html {
     .feature__icon {
         grid-row: 1/-1;
     }
+}
+
+/* css:about-us */
+
+.about-us__container {
+    background: var(--color-bloo-opacity5);
+    padding-top: 101px;
+    padding-bottom: 108px;
+}
+
+.about-us__group {
+    list-style: decimal-leading-zero;
+    list-style-position: inside;
+    max-width: var(--max-w-m);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.about-us__group li::marker {
+    color: var(--color-bloo);
+    font-size: 25px;
+    line-height: 40px;
+    font-weight: 600;
+    display: block;
+}
+
+.about-us__title {
+    color: var(--color-pink);
+    font-weight: 600;
+    font-size: 33px;
+    line-height: 38px;
+    margin: auto;
+
+    margin-bottom: 84px;
+    max-width: calc((360 - 200) * 1px);
+
+    text-align: center;
+}
+
+.about-us__item {
+    padding-bottom: 60px;
+    border-bottom: 1px solid var(--color-pink);
+    color: var(--color-darkblue);
+}
+
+.about-us__item>:is(h2, h3) {
+    font-weight: 600;
+    font-size: 33px;
+    line-height: 38px;
+    letter-spacing: -1px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.about-us__item>p {
+    margin-bottom: 40px;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 28px;
+}
+
+.about-us__item>a {
+    text-transform: uppercase;
+}
+
+.period--pink::after {
+    content: ".";
+    color: var(--color-pink);
+}
+
+.period--blue::after {
+    content: ".";
+    color: var(--color-darkblue);
+}
+
+/* css:aside */
+
+aside {
+    display: flex;
+    flex-direction: column;
+    gap: calc((91/2) * 1px);
+    margin-bottom: 66px;
+    margin-top: calc((29 - 23) * 1px);
 }

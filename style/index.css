@@ -8,12 +8,15 @@
     --color-bloo: rgba(109, 4, 48, 1);
     --color-pink: rgba(235, 82, 150, 1);
     --color-pink-opacity10: rgba(235, 82, 150, .1);
-    --color-bloo-opacity5: rgba(109, 4, 48, .05);
+    --color-bloo-opacity05: rgba(109, 4, 48, .05);
     --color-white: rgba(255, 255, 255, 1);
     --color-white-opacity80: rgba(255, 255, 255, 0.8);
     --color-darkblue: rgba(16, 42, 66, 1);
+    --color-darkblue-opacity02: rgba(16, 42, 66, .02);
+    --color-darkblue-opacity50: rgba(16, 42, 66, .5);
     --color-darkblue-opacity80: rgba(16, 42, 66, .8);
     --color-black: rgba(0, 0, 0, 1);
+    --color-darkblue-1: rgba(10, 4, 60, 1);
 
     --sans-serif: "Source Sans Pro", sans-serif;
 
@@ -66,7 +69,7 @@ aside {
 /* css:hero */
 
 .hero {
-    background: var(--color-bloo-opacity5);
+    background: var(--color-bloo-opacity05);
     margin: auto;
     max-width: var(--max-w-m);
     border-radius: 20px;
@@ -197,7 +200,7 @@ aside {
 /* css:about-us */
 
 #how\%20we\%20do\%20it {
-    background: var(--color-bloo-opacity5);
+    background: var(--color-bloo-opacity05);
     padding-top: 101px;
     padding-bottom: 108px;
 }
@@ -307,4 +310,95 @@ aside {
     line-height: 30px;
     color: var(--color-white-opacity80);
     margin-bottom: 50px;
+}
+
+/* css:subcribe */
+
+#subscribe {
+    /* margin: 100px 0; */
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin: auto;
+    max-width: var(--max-w-m);
+
+    padding: 100px 0;
+}
+
+#subscribe :is(h1, h2, h3) {
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 50px;
+    text-align: center;
+    letter-spacing: -1px;
+    color: var(--color-pink);
+
+    margin-bottom: 31px;
+}
+
+#subscribe p {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 30px;
+
+    text-align: center;
+
+    color: var(--color-darkblue-opacity80);
+}
+
+#subscribe form {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    border-radius: 15px;
+    background: var(--color-white);
+
+    padding: 50px 12px;
+}
+
+#subscribe label {
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 30px;
+    color: var(--color-darkblue);
+
+}
+
+#subscribe :is(input, textarea) {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-darkblue-1);
+}
+
+#subscribe :is(input, textarea)::placeholder {
+    font-size: 15px;
+    line-height: 28px;
+    color: var(--color-darkblue-opacity50);
+}
+
+#subscribe [type="submit"] {
+    border: 2px solid var(--color-pink);
+    border-radius: 100px;
+
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 30px;
+
+    text-align: center;
+    color: var(--color-pink);
+    padding: 12px 0;
+}
+
+.disclaimer {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+}
+
+.padlock {
+    width: 15px;
+    /* height: 15px; */
+    stroke: grey;
 }

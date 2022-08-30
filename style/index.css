@@ -24,7 +24,7 @@
     --max-w-m: 320px;
     --max-w-d: 420px;
 
-    outline: 1px dashed rgba(28, 63, 12, .05);
+    /* outline: 1px dashed rgba(28, 63, 12, .05); */
     background: rgba(28, 63, 12, .05);
 }
 
@@ -343,6 +343,8 @@ aside {
 
     text-align: center;
 
+    padding: 0 47px;
+
     color: var(--color-darkblue-opacity80);
 }
 
@@ -401,4 +403,70 @@ aside {
     width: 15px;
     /* height: 15px; */
     stroke: grey;
+}
+
+/* css:footer */
+footer {
+    display: grid;
+    text-align: center;
+    padding-top: 72px;
+    padding-bottom: 51px;
+    gap: 20px;
+}
+
+footer nav {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.footer__container {
+    background: var(--color-bloo-opacity05);
+    border-radius: 30px;
+    margin: auto;
+    max-width: var(--max-w-m);
+    padding-top: 59px;
+    padding-bottom: 52px;
+}
+
+.footer__container p {
+    margin-top: 30px;
+    margin-bottom: 60px;
+    padding: 0 38px;
+}
+
+#contact::before {
+    content: attr(id);
+}
+
+:is([aria-label="product"], [aria-label="our company"])::before {
+    content: attr(aria-label);
+}
+
+:is(#contact, [aria-label="product"], [aria-label="our company"]) {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 30px;
+    color: var(--color-darkblue-opacity80);
+    display: flex;
+    flex-direction: column;
+    font-style: normal;
+    gap: 15px;
+}
+
+:is(#contact, [aria-label="product"], [aria-label="our company"])::before {
+    text-transform: uppercase;
+    color: var(--color-pink);
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 4px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.copyright {
+    font-size: 15px;
+    line-height: 28px;
+    color: var(--color-darkblue-opacity80);
 }

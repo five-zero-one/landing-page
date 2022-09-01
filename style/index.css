@@ -3,8 +3,6 @@
 /* normalize */
 @import url("https://unpkg.com/tailwindcss@3.1.8/src/css/preflight.css");
 
-/*font family*/
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap');
 
 * {
     --color-bloo: rgba(109, 4, 48, 1);
@@ -20,26 +18,30 @@
     --color-black: rgba(0, 0, 0, 1);
     --color-darkblue-1: rgba(10, 4, 60, 1);
 
-    --sans-serif: "Source Sans Pro", sans-serif;
 
-    --min-w-m: 304px;
-    --max-w-m: 320px;
-    --max-w-d: 1232px;
 
-    --media-m: 360px;
-    --media-d: 1232px;
+    --w-clamp-1: clamp(270px, 85vw, 320px);
 
     /* outline: 1px dashed rgba(28, 63, 12, .05); */
     background: rgba(28, 63, 12, .05);
 }
 
-html {
-    font-family: var(--sans-serif);
-    line-height: 24px;
-}
+
 
 .none {
     display: none;
+}
+
+/* css:icons */
+
+.logo {
+    color: var(--color-darkblue);
+}
+
+.padlock {
+    width: 15px;
+    /* height: 15px; */
+    stroke: grey;
 }
 
 /* css:header */
@@ -50,15 +52,7 @@ header {
     padding: 23px 0;
 
     margin: auto;
-    max-width: var(--max-w-m);
-}
-
-.logo {
-    font-weight: 900;
-    font-size: 24px;
-    line-height: 30px;
-    letter-spacing: -0.2px;
-    color: var(--color-darkblue);
+    width: var(--w-clamp-1);
 }
 
 /* css:aside */
@@ -76,7 +70,7 @@ aside {
 .hero {
     background: var(--color-bloo-opacity05);
     margin: auto;
-    max-width: var(--max-w-m);
+    width: var(--w-clamp-1);
     border-radius: 20px;
     overflow: hidden;
     height: fit-content;
@@ -90,27 +84,12 @@ aside {
 }
 
 .hero a {
-    text-transform: uppercase;
     color: var(--color-darkblue);
-    font-weight: 600;
-    font-size: 13px;
-    line-height: 22px;
-    letter-spacing: 4px;
-}
-
-.hero a:hover {
-    border-bottom: 2px solid red;
 }
 
 .hero__title {
-    font-weight: 600;
-    font-size: 13px;
-    line-height: 22px;
     color: var(--color-pink);
-    text-transform: uppercase;
     margin-top: 55px;
-    letter-spacing: 6px;
-    text-align: center;
 }
 
 .hero__title~blockquote {
@@ -121,12 +100,6 @@ aside {
 }
 
 .hero__title~blockquote p:first-child {
-    text-transform: lowercase;
-    font-size: 30px;
-    line-height: 37px;
-    text-transform: 600;
-    /* font-size: 55px; */
-    /* line-height: 66px; */
     margin-bottom: 10px;
 }
 
@@ -135,10 +108,9 @@ aside {
 .feature {
     display: grid;
     place-items: center;
-    text-align: center;
 
     margin: auto;
-    max-width: var(--max-w-m);
+    width: var(--w-clamp-1);
 }
 
 .feature__title,
@@ -146,16 +118,7 @@ aside {
     padding: 5px;
 }
 
-.feature__title {
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: -0.3px;
-}
-
 .feature p {
-    font-size: 15px;
-    line-height: 28px;
     color: var(--color-darkblue-opacity80);
 }
 
@@ -179,8 +142,6 @@ aside {
 
 /* css:showcase */
 
-#showcase {}
-
 /* css:about-us */
 
 #how\%20we\%20do\%20it {
@@ -192,7 +153,7 @@ aside {
 .about-us__group {
     list-style: decimal-leading-zero;
     list-style-position: inside;
-    max-width: var(--max-w-m);
+    width: var(--w-clamp-1);
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -201,13 +162,10 @@ aside {
 
 .about-us__group li::marker {
     color: var(--color-bloo);
-    font-size: 25px;
-    line-height: 40px;
-    font-weight: 600;
     display: block;
 }
 
-.about-us__group>li {
+.about-us__group li {
     border-bottom: 1px solid var(--color-pink);
 }
 
@@ -217,15 +175,9 @@ aside {
 
 .about-us__title {
     color: var(--color-pink);
-    font-weight: 600;
-    font-size: 33px;
-    line-height: 38px;
     margin: auto;
-
     margin-bottom: 84px;
-    max-width: calc((360 - 200) * 1px);
-
-    text-align: center;
+    width: calc((360 - 200) * 1px);
 }
 
 .about-us__item {
@@ -234,23 +186,12 @@ aside {
 }
 
 .about-us__item>:is(h2, h3) {
-    font-weight: 600;
-    font-size: 33px;
-    line-height: 38px;
-    letter-spacing: -1px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
 .about-us__item>p {
     margin-bottom: 40px;
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 28px;
-}
-
-.about-us__item>a {
-    text-transform: uppercase;
 }
 
 .period--pink::after {
@@ -280,25 +221,14 @@ aside {
 
 #testimonals :is(blockquote, p) {
     margin: auto;
-    max-width: var(--max-w-m);
-}
-
-#testimonals blockquote {
-    font-weight: 600;
-    font-size: 30px;
-    line-height: 34px;
+    width: var(--w-clamp-1);
 }
 
 #testimonals p:first-of-type {
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 32px;
     margin-top: 32px;
 }
 
 #testimonals p:last-of-type {
-    font-size: 17px;
-    line-height: 30px;
     color: var(--color-white-opacity80);
     margin-bottom: 50px;
 }
@@ -310,30 +240,22 @@ aside {
     display: flex;
     flex-direction: column;
     gap: 50px;
-    margin: auto;
-    max-width: var(--max-w-m);
-
     padding: 100px 0;
+    background: var(--color-darkblue-opacity02);
+}
+
+#subscribe>* {
+    margin: auto;
+    width: var(--w-clamp-1);
 }
 
 #subscribe :is(h1, h2, h3) {
-    font-weight: 600;
-    font-size: 42px;
-    line-height: 50px;
-    text-align: center;
-    letter-spacing: -1px;
     color: var(--color-pink);
 
     margin-bottom: 31px;
 }
 
 #subscribe p {
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 30px;
-
-    text-align: center;
-
     padding: 0 47px;
 
     color: var(--color-darkblue-opacity80);
@@ -353,11 +275,7 @@ aside {
     display: flex;
     flex-direction: column;
     /* gap: 10px; */
-    font-weight: 600;
-    font-size: 17px;
-    line-height: 30px;
     color: var(--color-darkblue);
-
 }
 
 #subscribe :is(input, textarea) {
@@ -366,20 +284,18 @@ aside {
 }
 
 #subscribe :is(input, textarea)::placeholder {
-    font-size: 15px;
-    line-height: 28px;
     color: var(--color-darkblue-opacity50);
+}
+
+#subscribe :is(input, textarea):focus-visible {
+    border-bottom: 1px solid var(--color-pink);
+    outline: none;
 }
 
 #subscribe [type="submit"] {
     border: 2px solid var(--color-pink);
     border-radius: 100px;
 
-    font-weight: 600;
-    font-size: 21px;
-    line-height: 30px;
-
-    text-align: center;
     color: var(--color-pink);
     padding: 12px 0;
 }
@@ -390,19 +306,13 @@ aside {
     gap: 28px;
 }
 
-.padlock {
-    width: 15px;
-    /* height: 15px; */
-    stroke: grey;
-}
-
 /* css:footer */
+
 footer {
-    display: grid;
-    text-align: center;
+    /* display: grid; */
     padding-top: 72px;
     padding-bottom: 51px;
-    gap: 20px;
+    /* gap: 20px; */
 }
 
 footer nav {
@@ -414,10 +324,13 @@ footer nav {
 .footer__container {
     background: var(--color-bloo-opacity05);
     border-radius: 30px;
+
     margin: auto;
-    max-width: var(--max-w-m);
+    width: var(--w-clamp-1);
+
     padding-top: 59px;
     padding-bottom: 52px;
+    margin-bottom: 20px;
 }
 
 .footer__container p {
@@ -435,29 +348,18 @@ footer nav {
 }
 
 :is(#contact, [aria-label="product"], [aria-label="our company"]) {
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 30px;
     color: var(--color-darkblue-opacity80);
     display: flex;
     flex-direction: column;
-    font-style: normal;
     gap: 15px;
 }
 
 :is(#contact, [aria-label="product"], [aria-label="our company"])::before {
-    text-transform: uppercase;
     color: var(--color-pink);
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 22px;
-    letter-spacing: 4px;
     display: block;
     margin-bottom: 15px;
 }
 
 .copyright {
-    font-size: 15px;
-    line-height: 28px;
     color: var(--color-darkblue-opacity80);
 }

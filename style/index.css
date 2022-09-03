@@ -23,29 +23,59 @@
 }
 
 .navigation {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 60px;
     position: sticky;
     top: 0;
     background: white;
-    padding: 23px 20px;
+    padding: 25px 20px;
+}
+
+.navigation nav {
+    grid-column: 1/-1;
+    height: calc(100vh - 80px);
 }
 
 label.menu {
     background-color: magenta;
-    clear: right;
+    /* clear: right; */
 
     cursor: pointer;
-    /* position: pointer; */
+
+    justify-self: end;
+
     height: 20px;
-    width: 100px;
+    width: max-content;
     /* top: 50%; */
 }
 
 input.menu:checked+.menu {
     display: block;
-    height: 100vh;
+}
+
+.navigation ul {
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 30px;
+}
+
+.navigation li {
+    border-top: 1px solid var(--c-pink);
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-between;
+    /* border-bottom: 1px solid var(--c-pink); */
+}
+
+.navigation li:last-of-type {
+    border-bottom: 1px solid var(--c-pink);
+}
+
+.navigation li::after {
+    content: ">";
 }
 
 nav.menu,

@@ -289,7 +289,7 @@ section.subscribe label {
     color: var(--c-blue);
 }
 
-section.subscribe form>:not(label:last-of-type) {
+section.subscribe form>:not(label:last-of-type, button) {
     border-bottom: 1px solid var(--c-blue\.1);
 }
 

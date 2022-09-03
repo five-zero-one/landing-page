@@ -11,6 +11,7 @@
     --c-blue: rgba(16, 42, 66, 1);
     --c-blue\.02: rgba(16, 42, 66, .02);
     --c-blue\.1: rgba(16, 42, 66, .1);
+    --c-blue\.3: rgba(16, 42, 66, .3);
     --c-blue\.8: rgba(16, 42, 66, .8);
     --c-pink: rgba(235, 82, 150, 1);
     --c-bloo: rgba(108, 4, 47, 1);
@@ -21,7 +22,43 @@
     font-family: var(--sans-serif);
 }
 
-/* card */
+.navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 23px 20px;
+}
+
+label.menu {
+    background-color: magenta;
+    clear: right;
+
+    cursor: pointer;
+    /* position: pointer; */
+    height: 20px;
+    width: 100px;
+    /* top: 50%; */
+}
+
+input.menu:checked+.menu {
+    display: block;
+    height: 100vh;
+}
+
+nav.menu,
+.menu.icon {
+    display: none;
+}
+
+.hero\+feature {
+    display: flex;
+    flex-direction: column;
+    gap: 92px;
+    padding: 20px 0 66px;
+}
 
 section.hero {
     background: var(--c-bloo\.1);
@@ -95,7 +132,7 @@ section.hero blockquote p:first-child {
     gap: 10px;
 }
 
-.card.feature :first-child {
+.card.feature>:first-child {
     margin-bottom: 13px;
 }
 
@@ -112,17 +149,17 @@ section.hero blockquote p:first-child {
 section.about-us {
     background: var(--c-blue\.02);
     color: var(--c-blue\.8);
-    padding-top: 101px;
-    padding-bottom: 48px;
+    padding: 101px 0 48px;
 }
 
-section.about-us h1 {
+section.about-us>.title {
     font-weight: 600;
     font-size: 33px;
     line-height: 38px;
     text-align: center;
     text-align: center;
     color: var(--c-pink);
+    margin: 0 auto 84px auto;
 }
 
 [role=group].about-us {
@@ -182,6 +219,7 @@ section.projects {
     color: var(--c-blue\.8);
     display: grid;
     gap: 20px;
+    padding: 82px 0 91px;
 }
 
 section.projects :nth-child(2n) {
@@ -190,9 +228,8 @@ section.projects :nth-child(2n) {
 
 section.projects :is(picture, img) {
     object-fit: cover;
-    /* margin: auto; */
-    /* width: 318px; */
-    height: 363px;
+    height: 100%;
+    aspect-ratio: 3/4;
     border-radius: 20px;
 }
 
@@ -247,11 +284,16 @@ section.testimonals :is(picture, img) {
 }
 
 section.subscribe {
+    --line-height: 48px;
+    --horizonal-rule: calc(var(--line-height) - 1px);
+
+    --hr: repeating-linear-gradient(transparent, transparent var(--horizonal-rule), var(--c-blue\.3) var(--horizonal-rule), transparent var(--line-height), transparent 0px);
+    --hr-focus: repeating-linear-gradient(transparent, transparent var(--horizonal-rule), var(--c-pink) 0px, transparent var(--line-height), transparent 0px);
+
     display: flex;
     flex-direction: column;
     gap: 50px;
-    padding-top: 100px;
-    padding-bottom: 99px;
+    padding: 100px 0 99px;
 }
 
 section.subscribe header {
@@ -260,6 +302,9 @@ section.subscribe header {
     line-height: 30px;
     text-align: center;
     color: var(--c-blue\.8);
+    display: flex;
+    flex-direction: column;
+    gap: 31px;
 }
 
 section.subscribe header :not(p) {
@@ -276,7 +321,8 @@ section.subscribe form {
     gap: 50px;
     border-radius: 15px;
     background: #fff;
-    padding: 50px 12px;
+    /* padding: 50px 12px; */
+    padding: 50px 0px;
 }
 
 section.subscribe label {
@@ -300,31 +346,31 @@ section.subscribe :is(input) {
 }
 
 section.subscribe textarea {
-    --line-height: 48px;
-    --horizonal-rule: calc(var(--line-height) - 1px);
-
     font-size: 15px;
     line-height: var(--line-height);
-    background-image: repeating-linear-gradient(transparent, transparent var(--horizonal-rule), var(--c-blue\.1) 0px, transparent var(--line-height), transparent 0px);
+    background-image: var(--hr);
 }
 
 section.subscribe :is(input, textarea)::placeholder {
     color: var(--c-blue\.8);
 }
 
-/* :not(:last-child) */
-/* label:is(:focus-visible, :focus, :focus-within) */
-section.subscribe form>:not(label:last-of-type):is(:focus-visible, :focus, :focus-within) {
+section.subscribe label:is(:hover, :focus-visible, :focus, :focus-within) {
     color: var(--c-pink);
+}
+
+/* need to rework this rule */
+section.subscribe form>:not(label:last-of-type, input, textarea, button):is(:hover, :focus-visible, :focus, :focus-within) {
     border-bottom: 1px solid var(--c-pink);
 }
 
-section.subscribe form>label:last-of-type:is(:focus-visible, :focus, :focus-within) {
-    color: var(--c-pink);
+section.subscribe [type=submit]:hover {
+    color: #fff;
+    background: var(--c-pink);
 }
 
-section.subscribe form>label:last-of-type:is(:focus-visible, :focus, :focus-within)>textarea {
-    background-image: repeating-linear-gradient(transparent, transparent var(--horizonal-rule), var(--c-pink) 0px, transparent var(--line-height), transparent 0px);
+section.subscribe label:last-of-type:is(:hover, :focus-visible, :focus, :focus-within) textarea {
+    background-image: var(--hr-focus);
 }
 
 section.subscribe :is(input, textarea):is(:focus-visible, :focus, :focus-within) {
@@ -332,11 +378,12 @@ section.subscribe :is(input, textarea):is(:focus-visible, :focus, :focus-within)
     color: var(--c-blue);
 }
 
-section.subscribe :is(input, textarea):is(:focus-visible, :focus, :focus-within) {
-    color: var(--c-blue);
+section.subscribe .required::after {
+    content: "*";
+    color: var(--c-bloo);
 }
 
-section.subscribe [type="submit"] {
+section.subscribe [type=submit] {
     border: 2px solid var(--c-pink);
     border-radius: 100px;
 
@@ -358,12 +405,13 @@ section.subscribe [type="submit"] {
 footer {
     display: grid;
     text-align: center;
-    /* padding-top: 72px; */
-    /* padding-bottom: 51px; */
-    gap: 20px;
+
+    gap: 30px;
     font-weight: 400;
     font-size: 17px;
     line-height: 30px;
+
+    padding: 72px 0 51px;
 }
 
 .sitemap {
@@ -374,6 +422,9 @@ footer {
     font-size: 17px;
     line-height: 30px;
     color: var(--c-blue\.8);
+
+    padding-top: 59px;
+    padding-bottom: 52px;
 }
 
 .sitemap nav {
@@ -383,19 +434,31 @@ footer {
 }
 
 .sitemap p {
-    margin-top: 30px;
-    margin-bottom: 60px;
+    margin: 30px 0 60px;
 }
 
 .sitemap address::before {
     content: attr(id);
 }
 
-:is([aria-label="product"], [aria-label="our company"])::before {
+:is([aria-label=product], [aria-label="our company"])::before {
     content: attr(aria-label);
 }
 
-:is(.sitemap address, [aria-label=product], [aria-label="our company"]) {
+:is(#contact, [aria-label=product], [aria-label="our company"])::before {
+    text-transform: uppercase;
+    color: var(--c-pink);
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+}
+
+.sitemap address,
+[aria-label=product],
+[aria-label="our company"] {
     font-weight: 400;
     font-size: 17px;
     line-height: 30px;
@@ -406,22 +469,36 @@ footer {
     font-style: normal;
 }
 
-:is(#contact, [aria-label="product"], [aria-label="our company"])::before {
-    text-transform: uppercase;
-    color: var(--c-pink);
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 22px;
-    letter-spacing: 4px;
-    margin-bottom: 15px;
-}
-
 .copyright {
     font-size: 15px;
     line-height: 28px;
     color: var(--color-darkblue-opacity80);
 }
 
+/* dynamic width */
+
+.sitemap,
+section.about-us [role=group].about-us,
+section.projects>*,
+section.subscribe :is(form) {
+    /* background: magenta; */
+    margin: auto;
+    width: clamp(320px, 90%, 380px);
+}
+
+section.about-us>.title {
+    width: 50%;
+}
+
+section.subscribe header {
+    margin: auto;
+    width: clamp(270px, 70%, 400px);
+}
+
+section.subscribe form>* {
+    margin: auto;
+    width: 95%;
+}
 
 /* icons */
 
@@ -438,12 +515,11 @@ footer {
     border-radius: 50%;
     height: 80px;
     width: 80px;
+    display: grid;
+    place-items: center;
 }
 
 .feature[class*="icon"] svg {
-    position: relative;
-    top: 25%;
-    margin: auto;
     height: 50%;
 }
 

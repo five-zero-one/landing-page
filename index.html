@@ -7,16 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PinkPink - Quality design for all</title>
     <!-- <link rel="stylesheet" href="style/typography.css"> -->
-    <link media="screen and (min-width:360px) and (max-width:365px)" rel="stylesheet" href="style/index.css">
+    <link media="screen and (min-width:360px)" rel="stylesheet" href="style/index.css">
+    <!-- <link media="screen and (min-width:360px) and (max-width:365px)" rel="stylesheet" href="style/index.css"> -->
 </head>
 
 <body>
-    <header>
+    <header class="navigation">
         <a class="icon--text period:l1" href="#">PinkPink</a>
 
-        <div class="navigation none">
-            <!-- svg hamburger -->
-            <nav>
+        <div>
+            <label for="menu" class="menu">&equiv; Menu</label>
+            <input type="checkbox" id="menu" class="menu icon" />
+
+            <nav class="menu">
                 <ul>
                     <li><a href="#showcase">Showcase</a></li>
                     <li><a href="#how%20we%20do%20it">How we do it</a></li>
@@ -28,7 +31,7 @@
         </div>
     </header>
 
-    <aside>
+    <aside class="hero+feature">
         <section class="hero">
             <picture class="hero photo">
                 <img src="assets/img/spacejoy-85pCvDWDMmI-unsplash-large.png" alt="placeholder">
@@ -154,27 +157,27 @@
 
             <form action="#" method="post">
                 <label>
-                    Your first name
+                    <span class="required">Your first name</span>
                     <input required type="text" name="firstname" placeholder="Write your first name here">
                 </label>
                 <label>
-                    Your Surname
+                    <span>Your Surname</span>
                     <input type="text" name="surname" placeholder="Write your surname here">
                 </label>
                 <label>
-                    Email Address
+                    <span class="required">Email Address</span>
                     <input required type="email" name="email" placeholder="Write your email address here">
                 </label>
                 <label>
-                    Phone number
+                    <span>Phone number</span>
                     <input type="tel" name="telephone" placeholder="Write your phone number here">
                 </label>
                 <label>
-                    Subject
+                    <span>Subject</span>
                     <input type="text" name="subject" placeholder="Write a subject line">
                 </label>
                 <label>
-                    Message
+                    <span>Message</span>
                     <textarea style="resize:none;overflow:hidden" name="message" rows="4"
                         placeholder="Add a brief of your project"></textarea>
                 </label>

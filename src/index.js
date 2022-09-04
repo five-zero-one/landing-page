@@ -14,15 +14,26 @@ const links = [...sections]
         anchor.textContent = textContent[0].toUpperCase() + textContent.substring(1);
         anchor.href = "#" + section.id;
 
-        anchor.addEventListener("click", jumpToSection);
-
         return item;
     });
 
 nav.append(...links);
 
-function jumpToSection(e) {
-    // e.preventDefault();
+document.addEventListener("click", jumpToSection);
 
-    e.target.closest("header").querySelector("input").checked = false;
+
+
+function jumpToSection(e) {
+
+    const { target: el } = e;
+
+    if (el.tagName.toLowerCase() === "a") {
+        e.preventDefault();
+
+        e.target.closest("header").querySelector("input").checked = false;
+
+        document
+            .getElementById(el.href.split("/").at(-1).substring(1))
+            .scrollIntoView({ behavior: "smooth" });
+    }
 }

@@ -47,16 +47,13 @@ label.menu {
 
     height: 20px;
     width: max-content;
-    /* top: 50%; */
 }
 
 input.menu:checked+.menu {
     display: block;
 }
 
-.navigation ul {
-    display: flex;
-    flex-direction: column;
+.navigation .menu {
     font-weight: 400;
     font-size: 21px;
     line-height: 30px;
